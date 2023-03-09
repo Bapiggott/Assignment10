@@ -5,16 +5,16 @@ public class Password {
     
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("Please provide a password as a command line argument.");
+            System.out.println("Provide a password as a command line argument.");
             return;
         }
         
         String password = args[0];
         if (password.length() < 8 || password.length() > 16) {
-            System.out.println("Password must be between 8 and 16 characters long.");
+            System.out.println("Password's length must be between 8 and 16.");
             return;
         }
-        
+
         List<Character> lowercase = new ArrayList<>();
         List<Character> uppercase = new ArrayList<>();
         List<Character> numbers = new ArrayList<>();
@@ -32,22 +32,22 @@ public class Password {
             }
         }
         
-        int numCategories = 0;
+        int fourCategories = 0;
         if (!lowercase.isEmpty()) {
-            numCategories++;
+            fourCategories++;
         }
         if (!uppercase.isEmpty()) {
-            numCategories++;
+            fourCategories++;
         }
         if (!numbers.isEmpty()) {
-            numCategories++;
+            fourCategories++;
         }
         if (!symbols.isEmpty()) {
-            numCategories++;
+            fourCategories++;
         }
         
-        if (numCategories < 3) {
-            System.out.println("Password must contain characters from at least three of the following categories: lowercase letters, uppercase letters, numbers, special symbols.");
+        if (fourCategories < 3) {
+            System.out.println("Password must have 3 of the following categories: lowercase letters, uppercase letters, numbers, special symbols.");
             return;
         }
         
